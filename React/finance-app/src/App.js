@@ -45,20 +45,30 @@ const App = () => {
 
 return (
   <div> 
-    <nav className="navbar navbar-dark bg-primary">
+    <nav className="navbar navbar-dark bg-dark bg-gradient shadow">
       <div className="container-fluid">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand fs-3" href="#">
       Track your Finance
       </a>
       </div>
     </nav>
 
-  <div className="container">
-    <form onSubmit={handleFormSubmit}>
-      <div className="mb-3 mt-3"> 
+  <div className="container text-dark">
+    <form onSubmit={handleFormSubmit} className="fs-4">
+    <div class="row">
+      <div className="mb-3 mt-3 col"> 
         <label htmlFor="amount" className="form-label">Amount</label>
         <input type="text" className="form-control" id="amount" name="amount" onChange={handleInputChange} value={formData.amount}/>
       </div>
+      <div className="mb-3 mt-3 col"> 
+        <label htmlFor="date" className="form-label">Date</label>
+        <input type="text" className="form-control" id="date" name="date" onChange={handleInputChange} value={formData.date}/>
+      </div>
+      <div className="mb-3 mt-3 form-check col"> 
+        <label htmlFor="is_income" className="form-label">Is Income</label>
+        <input className="form-check-input" type="checkbox" id="is_income" name="is_income" onChange={handleInputChange} value={formData.is_income}/>
+      </div>
+  </div>
       <div className="mb-3"> 
         <label htmlFor="category" className="form-label">Category</label>
         <input type="text" className="form-control" id="category" name="category" onChange={handleInputChange} value={formData.category}/>
@@ -67,20 +77,19 @@ return (
         <label htmlFor="description" className="form-label">Description</label>
         <input type="text" className="form-control" id="description" name="description" onChange={handleInputChange} value={formData.description}/>
       </div>
-      <div className="mb-3"> 
-        <label htmlFor="is_income" className="form-label">Income?</label>
-        <input type="checkbox" id="is_income" name="is_income" onChange={handleInputChange} value={formData.is_income}/>
-      </div>
-      <div className="mb-3"> 
-        <label htmlFor="date" className="form-label">Date</label>
-        <input type="text" className="form-control" id="date" name="date" onChange={handleInputChange} value={formData.date}/>
-      </div>
 
-      <button type="submit" className="btn btn-primary">Submit</button>
+
+
+      
+      <div class="d-grid gap-2 col-6 mx-auto">
+      <button type="submit" className="btn btn-outline-dark btn-lg bg-gradient shadow-lg">Submit</button>
+      </div>
 
     </form>
 
-<table className="table table-striped table-bordered table-hover">
+<hr className="mt-5"></hr>
+<p className="text-dark fs-4">History</p>
+<table className="table table-striped table-bordered table-hover mt-3">
 <thead>
   <tr>
     <th>Amount</th>
